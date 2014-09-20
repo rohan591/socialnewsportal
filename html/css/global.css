@@ -1,9 +1,74 @@
 /*
 Styles
 ------------------*/
+a, a:hover {
+  text-decoration: none;
+}
 body {
-  background: #fff;
+  background: #f1f4f9;
   font-size: 16px;
   font-family: Helvetica, Arial, sans-serif;
   line-height: 20px;
+}
+/*header----*/
+header {
+  background: #666;
+  height: 100px;
+  text-align: center;
+  margin-bottom: 50px;
+
+}
+.fbNews {
+  border-top: 3px solid #3B5998;
+}
+.twitNews {
+  border-top: 3px solid #9AE4E8;  
+}
+/*news list wrap------*/
+.newsListWrap {
+  margin:0;
+}
+.content {
+  background: #fff;
+}
+.imgBox {
+  display: block;
+}
+.textBox {
+  padding: 10px 15px;
+}
+.textBox h2 {
+  font-size: 18px;
+  line-height: 22px;  
+}
+.textBox h2 a {
+  color: #30abd5;
+}
+/*read more*/
+.read-more-wrapper a {
+  -webkit-transition: all 300ms ease-in-out;
+  -moz-transition: all 300ms ease-in-out;
+  -o-transition: all 300ms ease-in-out;
+  -ms-transition: all 300ms ease-in-out;
+  transition: all 300ms ease-in-out;
+}
+.read-more-wrapper {
+  display:block;
+  overflow:hidden;
+}
+.read-more {
+  float: left;
+  display: block;
+  line-height: 10px;
+  background: url(../images/more-arrow.png) no-repeat center right;
+  padding-right: 12px;
+  margin: 5px 0;
+}
+a.read-more {    
+  background-image: url(../images/more-arrow.png);
+}
+.read-more:hover {
+  background-position: center left;
+  padding-left: 12px;
+  color: #479ccf;
 }
