@@ -10,7 +10,16 @@
   <link href="css/global.css" rel="stylesheet" type="text/css">
    
   <script src="js/modernizr.custom.js"></script>
-
+  <script src="js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+  $(".fbIcon, .twitIcon, .pintIcon").hover(
+  function () {
+    $(this).addClass("swashIn");
+  }
+);
+});
+</script>
 </head>
 <body>
   <div id="wrapper">
@@ -24,6 +33,7 @@
         <ul class="newsListWrap grid swipe-down" id="grid">
           <li>
             <div class="content">
+              <a href="javascript:void(0)" class="fbIcon magictime"></a>
             <a href="javascript:void(0)" class="imgBox">
               <img src="images/Collective128_mondrian.png">
             </a>
@@ -38,7 +48,8 @@
             </div>
           </li>
           <li>
-            <div class="content">
+            <div class="content">              
+            <a href="javascript:void(0)" class="pintIcon magictime"></a>
             <a href="javascript:void(0)" class="imgBox">
               <img src="images/Collective128_enduringCSS.png">
             </a>
@@ -55,7 +66,8 @@
         </div>
           </li>
           <li>            
-            <div class="content">
+            <div class="content">              
+            <a href="javascript:void(0)" class="twitIcon magictime"></a>
             <a href="javascript:void(0)" class="imgBox">
               <img src="images/Collective128_retrocar.png">
             </a>
