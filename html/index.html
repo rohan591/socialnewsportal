@@ -20,6 +20,8 @@
                   e.preventDefault();
                   var q = $('#term').val();
 
+                  $('#grid').html('');
+
                   var query = 'http://localhost/socialnewspostal/trunk/testTweet.php?term='+q;
 
                   $.get(query, function(data) {
@@ -36,11 +38,11 @@
                         var permalink = data.posts[i].permalink;
                         var photoUrl = '';
                         var photo = '';
-                        
+
                         if (data.posts[i].network == 'twitter' && data.posts[i].photos) {
                           photoUrl = data.posts[i].photos[0].m;
                         }else if (data.posts[i].network == 'facebook' && data.posts[i].photos) {
-                          photoUrl = data.posts[i].photos[0].s;
+                          photoUrl = data.posts[i].photos[0].l;
                         }
 
                         if (photoUrl != '') {
