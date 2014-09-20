@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>  
+
+
+</head>
+<body>
+<h1>This is a search page</h1>
+<p>
+  	<input type="text" id="hashSearch" class="" />
+  	<input type="button" name="MyButton" id="submitSearch" value="MyButton" />
+</p>
+
+<div id="showSearch">
+	
+</div>
+</body>
+</html>
+
+<script type="text/javascript">
+	
+	$( "#submitSearch" ).click(function() {
+  		//alert( "Handler for .click() called." );
+  		//console.log('execute the search API request');
+  		var q = $('#hashSearch').val();
+		//console.log(q);
+
+  		$.get('https://graph.facebook.com/v1.0/search?q='+q+'&access_token=CAACEdEose0cBAM0DsFaxOQctC7UZAvRDLmycsFMnZAvdEjV9RIGOfnoQFIbcH8zMFoG1dfWFa0Ob4JpeSp7eZCjdLhRXLrWHa5jgvEZBbSjGHwCH4tlYlcHFXpMqp15JbEnYQtlJumei4RpaxA0DdBWexM18sWSsmSbvtax7mT4xwuIDYgxNmj5nma2rHKDfcovyPxbzibUqZChBWIQ0TaKZCQiLJvQ1kZD', function(data) {
+  			/*optional stuff to do after success */
+  			//console.log(data);
+  			$('#showSearch').append(JSON.stringify(data));
+	});
+  })		
+</script>
