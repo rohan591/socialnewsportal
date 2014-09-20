@@ -10,8 +10,10 @@
 <body>
 <h1>This is a search page</h1>
 <p>
-  	<input type="text" id="hashSearch" class="" />
-  	<input type="button" name="MyButton" id="submitSearch" value="MyButton" />
+  <form name="searchForm" id="searchForm">
+  	<input type="text" name="hashSearch" id="hashSearch" class="" />
+  	<input type="submit" name="MyButton" id="submitSearch" value="MyButton" />    
+  </form>
 </p>
 
 <div id="showSearch">
@@ -21,17 +23,44 @@
 </html>
 
 <script type="text/javascript">
+  $(document).ready(function(){
+      $('#searchForm').submit(function(e){
+          e.preventDefault();
+          var q = encodeURIComponent($('#hashSearch').val());
+
+          var query = 'https://graph.facebook.com/v1.0/search?q='+q+'&access_token=CAACEdEose0cBAEensqKR3DavpnMZB7Ecgfb8Av8ewVomzmf0pw83fL24mn3Fv3JlVmVLJfO7H70MXjeDZBxvD0HrkYnYr9aOfybAXOZBCjnasMj7PuG6XEFqXUzZB0ZCd788mqArW6BUbYOjuRkfvxivZCb0DGy8ShI2ddMBHFQXdiZAtxH2ylPDhSP1GwWyKeVmG6z8FqSrt4qFIHZBKVj7rYZAdF0Suc5wZD';
+
+          console.log('Print this stuff for me-----> \n '+query);
+          
+          $.ajax({
+                type: "GET",
+                dataType: "json",
+                url: query,
+                // script call was *not* successful
+                error: function(XMLHttpRequest, textStatus, errorThrown) {
+                    alert('Server Error: '+XMLHttpRequest.responseText+' '+textStatus+' '+errorThrown);
+                    $('#btnSubmit').text('Submit').prop('disabled', false);
+                }, // error 
+                // script call was successful 
+                // data contains the JSON values returned by the API 
+                success: function(data){
+                    console.log('Print this stuff for me-----> \n '+ JSON.stringify(data));
+                } // success
+            }); // ajax
+      });
+      
+  });
 	
-	$( "#submitSearch" ).click(function() {
+	/*$( "#submitSearch" ).click(function() {
   		//alert( "Handler for .click() called." );
   		//console.log('execute the search API request');
   		var q = $('#hashSearch').val();
 		//console.log(q);
 
   		$.get('https://graph.facebook.com/v1.0/search?q='+q+'&access_token=CAACEdEose0cBAM0DsFaxOQctC7UZAvRDLmycsFMnZAvdEjV9RIGOfnoQFIbcH8zMFoG1dfWFa0Ob4JpeSp7eZCjdLhRXLrWHa5jgvEZBbSjGHwCH4tlYlcHFXpMqp15JbEnYQtlJumei4RpaxA0DdBWexM18sWSsmSbvtax7mT4xwuIDYgxNmj5nma2rHKDfcovyPxbzibUqZChBWIQ0TaKZCQiLJvQ1kZD', function(data) {
-  			/*optional stuff to do after success */
+  			//optional stuff to do after success
   			//console.log(data);
   			$('#showSearch').append(JSON.stringify(data));
 	});
-  })		
+  })		*/
 </script>

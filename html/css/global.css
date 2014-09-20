@@ -1,6 +1,19 @@
 /*
 Styles
 ------------------*/
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Open Sans', sans-serif;
+}
+a, input[type="button"], .content span {
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+  }
+a, input[type="button"] {
+  outline: 0;
+}
 a, a:hover {
   text-decoration: none;
 }
@@ -18,13 +31,161 @@ header {
   height: 100px;
   text-align: center;
   margin-bottom: 50px;
-
 }
+h1 {
+  background: url('../images/logo.png') no-repeat;
+  height: 60px;
+  width: 120px;
+  float: left;
+  text-indent: -9999px;
+  margin: 20px 0 0 30px;
+}
+/*Search box*/
+/*header #formContainer input[type="text"] {
+  height: 40px;
+  font-size: 14px;
+  display: inline-block;
+  font-weight: 100;
+  border: none;
+  outline: none;
+  color: #333;
+  padding: 3px;
+  padding-right: 60px;
+  width: 0px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: none;
+  z-index: 3;
+  transition: width .4s cubic-bezier(0.000, 0.795, 0.000, 1.000);
+  cursor: pointer;
+  padding: 0 10px
+}
+header #formContainer input[type="text"]:focus {
+  width: 200px;
+  z-index: 1;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;
+  cursor: text;
+  background: #fff;
+}
+header #formContainer input[type="submit"] {
+  height: 40px;
+  width: 40px;
+  display: inline-block;
+  color:red;
+  float: right;
+  background: url('../images/search.png') #fff center center no-repeat;
+  text-indent: -10000px;
+  border: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 2;
+  cursor: pointer;
+  opacity: 0.4;
+  cursor: pointer;
+  transition: opacity .4s ease;
+  outline: 0;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;
+}
+header #formContainer input[type="submit"]:hover {
+  opacity: 0.8;
+}
+header #formContainer {
+  padding: 30px 50px 0 0;
+  height: 40px;
+  width: 200px;
+  position: absolute;
+  top: 30px;
+  right: 30px;
+}*/
+#searchBox {
+  float: right;
+  width: 330px;
+  padding: 10px;
+  margin: 20px 0 0 0;
+}
+#searchBox fieldset {
+  float: left;
+  border: 0;
+}
+#selectItem {
+  float: right;
+  width: 300px;
+  height: 30px;
+  margin: 20px 35px 0 0;
+}
+#selectItem span {
+  float: left;
+  line-height: 55px;
+  margin-right: 20px;
+  color: #fff;
+}
+fieldset input[type="text"] {
+  height: 40px;
+  width: 300px;
+  border: 0;
+  padding: 0 10px;
+  outline: 0;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+fieldset {
+  position: relative;
+}
+fieldset input[type="button"] {
+  height:40px;
+  width: 40px;
+  text-indent: -9999px;
+  background: url('../images/search.png') 8px 9px no-repeat;
+  border: 0;
+  outline: 0;
+  cursor: pointer;
+  opacity: 0.4;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+fieldset input[type="button"]:hover {
+  opacity: 0.8;
+}
+.roll_over{
+        height: 48px;
+  width: 48px;
+  margin: 5px;
+  float: left;
+  -webkit-transition: all ease 0.5s;
+  -moz-transition: all ease 0.5s;
+  -o-transition: all ease 0.5s;
+  -ms-transition: all ease 0.5s;
+  transition: all ease 0.5s;
+}
+.facebook{
+background-image:url('../images/facebook.png');
+}
+.twitter{
+background-image:url('../images/pinterest-hover.png');
+}
+.pinterest{
+background-image:url('../images/twitter.png');
+}
+.roll_over:hover {
+background-position: 0px -48px;
+}
+
+
+
+
 .fbNews {
   border-top: 3px solid #3B5998;
 }
 .twitNews {
-  border-top: 3px solid #9AE4E8;  
+  border-top: 3px solid #9AE4E8;
 }
 /*news list wrap------*/
 .newsListWrap {
@@ -34,8 +195,31 @@ header {
   background: #fff;
   position: relative;
 }
+.content span {
+  text-indent: -9999px;
+  height: 20px;
+  width: 20px;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  z-index: 999999;
+}
+/*.container .content span.fb {
+  background: ('../images/fatcebook-top.png') no-repeat;
+}
+.container .content span.tw {
+  background: ('../images/twitter-top.png') no-repeat;
+}
+.container .content span.pin {
+  background: ('../images/pintrest-top.png') no-repeat;
+}*/
+.content span:hover {
+  height: 30px;
+  width: 30px;
+}
 .imgBox {
   display: block;
+  overflow: hidden;
 }
 .textBox {
   padding: 10px 15px;
@@ -43,6 +227,11 @@ header {
 .textBox h2 {
   font-size: 18px;
   line-height: 22px;  
+}
+.textBox p {
+  font-size: 13px;
+  line-height: 18px;
+  color: #6c6c6c;
 }
 .textBox h2 a {
   color: #30abd5;
@@ -58,6 +247,7 @@ header {
 .read-more-wrapper {
   display:block;
   overflow:hidden;
+  margin-top: 10px;
 }
 .read-more {
   float: left;
@@ -69,6 +259,9 @@ header {
 }
 a.read-more {    
   background-image: url(../images/more-arrow.png);
+  color: #17989d;
+  float: right;
+  font-size: 12px;
 }
 .read-more:hover {
   background-position: center left;

@@ -5,10 +5,10 @@
   <title>Drag and Drop</title>
   <!-- <link href="css/bootstrap.css" rel="stylesheet" type="text/css"> -->
 
-  <link href="css/demo.css" rel="stylesheet" type="text/css">
-  <link href="css/component.css" rel="stylesheet" type="text/css">
-  <link href="css/global.css" rel="stylesheet" type="text/css">
-   
+  <link href="css/demo.css" rel="stylesheet" type="text/css" />
+  <link href="css/component.css" rel="stylesheet" type="text/css" />
+  <link href="css/global.css" rel="stylesheet" type="text/css" />
+  <!-- <link rel="stylesheet" type="text/css" href="css/style1.css" /> -->
   <script src="js/modernizr.custom.js"></script>
   <script src="js/jquery-1.11.1.min.js"></script>
 <script type="text/javascript">
@@ -23,8 +23,25 @@ $(document).ready(function(){
 </head>
 <body>
   <div id="wrapper">
+    <!-- HEADER -->
     <header>
-      <div class="container">hello</div>
+      <div class="container">
+        <h1># tag</h1>
+        <div id="selectItem">
+          <span>Category by:</span>
+          <a href="....."><div class="facebook roll_over"></div></a>
+          <a href="...."><div class="twitter roll_over"></div></a>
+          <a href="...."><div class="pinterest roll_over"></div></a>
+        </div>
+        <form id="searchBox">
+            <fieldset>
+              <input type="text" placeholder="Search">
+              <input type="button" value="icon">
+            </fieldset>
+            <!-- <a href="#." id="serachText">+</a> -->
+            <br class="clear" />
+        </form>
+      </div>
     </header>
     <!-- container start here -->
     <section class="grid-wrap">
@@ -50,6 +67,7 @@ $(document).ready(function(){
           <li>
             <div class="content">              
             <a href="javascript:void(0)" class="pintIcon magictime"></a>
+            <div class="content">
             <a href="javascript:void(0)" class="imgBox">
               <img src="images/Collective128_enduringCSS.png">
             </a>
@@ -65,9 +83,10 @@ $(document).ready(function(){
           </div>
         </div>
           </li>
-          <li>            
+          <li>   
             <div class="content">              
             <a href="javascript:void(0)" class="twitIcon magictime"></a>
+            <div class="content">
             <a href="javascript:void(0)" class="imgBox">
               <img src="images/Collective128_retrocar.png">
             </a>
@@ -142,21 +161,24 @@ $(document).ready(function(){
           </div>
           </li>
         </ul>
-
-
       </div>
     </section>
-
   </div>
-
-
   <script src="js/masonry.pkgd.min.js"></script>
   <script src="js/imagesloaded.pkgd.min.js"></script>
   <script src="js/classie.js"></script>
   <script src="js/colorfinder-1.1.js"></script>
   <script src="js/gridScrollFx.js"></script>
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+  <script type="text/javascript" src="js/jquery.dropdown.js"></script>
   <script>
-  new GridScrollFx( document.getElementById( 'grid' ), {
+  $( function() {
+        $('#cd-dropdown').dropdown({
+          gutter : 5
+        });
+  });
+
+  new GridScrollFx( document.getElementById('grid'), {
     viewportFactor : 0.4
   } );
   </script>

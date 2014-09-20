@@ -268,4 +268,10 @@
 .grid li.shown img,
 .grid li.shown .textBox {
 	visibility: visible;
+	-webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+}
+.grid li.shown img:hover {
+	-webkit-transform: scale(1.1);
 }
