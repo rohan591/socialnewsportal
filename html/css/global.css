@@ -288,6 +288,9 @@ a.read-more {
 .pintIcon {
   background: url(../images/pinterest.png);
 }
+.instagramIcon {
+  background: url(../images/instagram.png);
+}
 .magictime {
   -webkit-animation-duration: 1s;
   -moz-animation-duration: 1s;
