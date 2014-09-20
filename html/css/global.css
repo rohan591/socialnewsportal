@@ -105,7 +105,6 @@ header #formContainer {
 }*/
 #searchBox {
   float: right;
-  width: 330px;
   padding: 10px;
   margin: 20px 0 0 0;
 }
@@ -138,7 +137,7 @@ fieldset input[type="text"] {
 fieldset {
   position: relative;
 }
-fieldset input[type="button"] {
+fieldset input[type="submit"] {
   height:40px;
   width: 40px;
   text-indent: -9999px;
@@ -151,7 +150,7 @@ fieldset input[type="button"] {
   top: 0;
   right: 0;
 }
-fieldset input[type="button"]:hover {
+fieldset input[type="submit"]:hover {
   opacity: 0.8;
 }
 .roll_over{
@@ -281,6 +280,7 @@ a.read-more {
   top: 5px;
   right: 5px;
   z-index: 10;
+  opacity: 0.4;
 }
 .twitIcon {
   background: url(../images/twit.png);

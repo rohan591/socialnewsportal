@@ -3,7 +3,7 @@
 $term = $_REQUEST['term'];
 $apiURL = "http://post-cache.tagboard.com/search/".$term;
 
- $data = array('count'=>5);
+ $data = array('count'=>50);
   $options = array(
     'http' => array(
         'header'  => "Content-type: application/x-www-form-urlencoded\r\n",

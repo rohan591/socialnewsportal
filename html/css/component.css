@@ -62,6 +62,7 @@
 .grid li > a,
 .grid li img {
 	display: block;
+	width: 100%;
 	outline: none;
 	border: none;
 }
