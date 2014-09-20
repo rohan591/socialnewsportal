@@ -1,186 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>Drag and Drop</title>
-  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
-  <link href="css/demo.css" rel="stylesheet" type="text/css" />
-  <link href="css/component.css" rel="stylesheet" type="text/css" />
-  <link href="css/global.css" rel="stylesheet" type="text/css" />
+    <head>
+        <meta charset="utf-8">
+        <title>Socual News Portal</title>
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
+            <link href="css/demo.css" rel="stylesheet" type="text/css" />
+            <link href="css/component.css" rel="stylesheet" type="text/css" />
+            <link href="css/global.css" rel="stylesheet" type="text/css" />
+            <script src="js/modernizr.custom.js"></script>
+            <script src="js/jquery-1.11.1.min.js"></script>
+            <script type="text/javascript">
+            $(document).ready(function(){
+                $(".fbIcon, .twitIcon, .pintIcon").hover(function () {
+                  $(this).addClass("swashIn");
+                });
 
-  <script src="js/modernizr.custom.js"></script>
-  <script src="js/jquery-1.11.1.min.js"></script>
-<script type="text/javascript">
-$(document).ready(function(){
-  $(".fbIcon, .twitIcon, .pintIcon").hover(
-  function () {
-    $(this).addClass("swashIn");
-  }
-);
-});
-</script>
-</head>
-<body>
-  <div id="wrapper">
-    <!-- HEADER -->
-    <header>
-      <div class="container">
-        <h1># tag</h1>
-        <div id="selectItem">
-          <span>Category by:</span>
-          <a href="....."><div class="facebook roll_over"></div></a>
-          <a href="...."><div class="twitter roll_over"></div></a>
-          <a href="...."><div class="pinterest roll_over"></div></a>
-        </div>
-        <form id="searchBox">
-            <fieldset>
-              <input type="text" placeholder="Search">
-              <input type="button" value="icon">
-            </fieldset>
-            <!-- <a href="#." id="serachText">+</a> -->
-            <br class="clear" />
-        </form>
-      </div>
-    </header>
-    <!-- container start here -->
-    <section class="grid-wrap">
-      <div class="container">
+                //get results
+                $('#searchBox').submit(function(e){
+                  e.preventDefault();
+                  var q = $('#term').val();
 
-        <ul class="newsListWrap grid swipe-down" id="grid">
-          <li>
-            <div class="content">
-            <a href="javascript:void(0)" class="fbIcon magictime"></a>
-            <a href="javascript:void(0)" class="imgBox">
-              <img src="images/Collective128_mondrian.png">
-            </a>
-            <div class="textBox">
-              <h2><a href="javascript:void(0)">Lorem Ipsum is simply dummy text</a></h2>
-              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,
-              </p>
-              <div class="read-more-wrapper">
-                <a href="#" class="read-more">Read More</a>
-              </div>
-            </div>
-            </div>
-          </li>
-          <li>
-            <div class="content">              
-            <a href="javascript:void(0)" class="pintIcon magictime"></a>
-            <div class="content">
-            <a href="javascript:void(0)" class="imgBox">
-              <img src="images/Collective128_enduringCSS.png">
-            </a>
-            <div class="textBox">              
-            <div class="content">
-              <h2><a href="javascript:void(0)">Lorem Ipsum is simply dummy text</a></h2>
-              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,
-              </p>
-              <div class="read-more-wrapper">
-                <a href="#" class="read-more">Read More</a>
-              </div>
-            </div>
-          </div>
-        </div>
-          </li>
-          <li>   
-            <div class="content">              
-            <a href="javascript:void(0)" class="twitIcon magictime"></a>
-            <div class="content">
-            <a href="javascript:void(0)" class="imgBox">
-              <img src="images/Collective128_retrocar.png">
-            </a>
-            <div class="textBox">
-              <h2><a href="javascript:void(0)">Lorem Ipsum is simply dummy text</a></h2>
-              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,
-              </p>
-              <div class="read-more-wrapper">
-                <a href="#" class="read-more">Read More</a>
-              </div>
-            </div>
-          </div>
-          </li>
-          <li>            
-            <div class="content">
-            <a href="javascript:void(0)" class="imgBox">
-              <img src="images/Collective128_enduringCSS.png">
-            </a>
-            <div class="textBox">
-              <h2><a href="javascript:void(0)">Lorem Ipsum is simply dummy text</a></h2>
-              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,
-              </p>
-              <div class="read-more-wrapper">
-                <a href="#" class="read-more">Read More</a>
-              </div>
-            </div>
-          </div>
-          </li>
-          <li>            
-            <div class="content">
-            <a href="javascript:void(0)" class="imgBox">
-              <img src="images/Collective128_retrocar.png">
-            </a>
-            <div class="textBox">
-              <h2><a href="javascript:void(0)">Lorem Ipsum is simply dummy text</a></h2>
-              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-              </p>
-              <div class="read-more-wrapper">
-                <a href="#" class="read-more">Read More</a>
-              </div>
-            </div>
-          </div>
-          </li>
-          <li>            
-            <div class="content">
-            <a href="javascript:void(0)" class="imgBox">
-              <img src="images/Collective128_enduringCSS.png">
-            </a>
-            <div class="textBox">
-              <h2><a href="javascript:void(0)">Lorem Ipsum is simply dummy text</a></h2>
-              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-              </p>
-              <div class="read-more-wrapper">
-                <a href="#" class="read-more">Read More</a>
-              </div>
-            </div>
-          </div>
-          </li>
-          <li>            
-            <div class="content">
-            <a href="javascript:void(0)" class="imgBox">
-              <img src="images/Collective128_enduringCSS.png">
-            </a>
-            <div class="textBox">
-              <h2><a href="javascript:void(0)">Lorem Ipsum is simply dummy text</a></h2>
-              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,
-              </p>
-              <div class="read-more-wrapper">
-                <a href="#" class="read-more">Read More</a>
-              </div>
-            </div>
-          </div>
-          </li>
-        </ul>
-      </div>
-    </section>
-  </div>
-  <script src="js/masonry.pkgd.min.js"></script>
-  <script src="js/imagesloaded.pkgd.min.js"></script>
-  <script src="js/classie.js"></script>
-  <script src="js/colorfinder-1.1.js"></script>
-  <script src="js/gridScrollFx.js"></script>
-  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-  <script type="text/javascript" src="js/jquery.dropdown.js"></script>
-  <script>
-  $( function() {
-        $('#cd-dropdown').dropdown({
-          gutter : 5
-        });
-  });
+                  var query = 'http://localhost/socialnewspostal/trunk/testTweet.php?term='+q;
 
-  new GridScrollFx( document.getElementById('grid'), {
-    viewportFactor : 0.4
-  } );
-  </script>
+                  $.get(query, function(data) {
+                    data = jQuery.parseJSON(data);
+                     var i = 0;
+                     $.each(data.posts, function() {
+                        if (data.posts[i].network == 'twitter') {
+                          var network = 'twitIcon';
+                        }else if (data.posts[i].network == 'facebook') {
+                          var network = 'fbIcon';                          
+                        }
 
-</body>
+                        var text = data.posts[i].text;
+                        var permalink = data.posts[i].permalink;
+                        var photoUrl = '';
+                        var photo = '';
+                        
+                        if (data.posts[i].network == 'twitter' && data.posts[i].photos) {
+                          photoUrl = data.posts[i].photos[0].m;
+                        }else if (data.posts[i].network == 'facebook' && data.posts[i].photos) {
+                          photoUrl = data.posts[i].photos[0].s;
+                        }
+
+                        if (photoUrl != '') {
+                          var photo = '<a href="javascript:void(0)" class="imgBox">'+
+                                      '<img src="'+photoUrl+'" />'+
+                                      '</a>';
+                        };
+
+                        var post = '<li>'+
+                                    '<div class="content">'+
+                                    '<a href="javascript:void(0)" class="'+network+' magictime"></a>'+
+                                    photo+
+                                    '<div class="textBox">'+
+                                    '<h2><a href="'+permalink+'">'+text+'</a></h2>'+
+                                    '<p>'+text+'</p>'+
+                                    '<div class="read-more-wrapper">'+
+                                    '</div>'+
+                                    '</div>'+
+                                    '</div>'+
+                                    '</li>';
+
+                        $('#grid').append(post);
+
+                        i++;
+                     });
+
+                      new GridScrollFx( document.getElementById('grid'), {
+                        viewportFactor : 0.4
+                      });
+                  });
+                });              
+          
+            });
+            </script>
+        </head>
+        <body>
+            <div id="wrapper">
+                <!-- HEADER -->
+                <header>
+                    <div class="container">
+                        <h1># tag</h1>
+                        <div id="selectItem">
+                            <span>Category by:</span>
+                            <a href="....."><div class="facebook roll_over"></div></a>
+                            <a href="...."><div class="twitter roll_over"></div></a>
+                            <a href="...."><div class="pinterest roll_over"></div></a>
+                        </div>
+                        <form id="searchBox" name="searchBox">
+                            <fieldset>
+                                <input type="text" name="term" id="term" placeholder="Search">
+                                <input type="submit" name="btnSubmit" value="icon">
+                            </fieldset>
+                            <!-- <a href="#." id="serachText">+</a> -->
+                            <br class="clear" />
+                        </form>
+                    </div>
+                </header>
+                <!-- container start here -->
+                <section class="grid-wrap">
+                    <div class="container">
+                        <ul class="newsListWrap grid swipe-down" id="grid">
+                        </ul>
+                      </div>
+                 </section>
+              </div>
+        <script src="js/masonry.pkgd.min.js"></script>
+        <script src="js/imagesloaded.pkgd.min.js"></script>
+        <script src="js/classie.js"></script>
+        <script src="js/colorfinder-1.1.js"></script>
+        <script src="js/gridScrollFx.js"></script>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+        <script type="text/javascript" src="js/jquery.dropdown.js"></script>
+        <script>
+            /*$( function() {
+                $('#cd-dropdown').dropdown({
+                  gutter : 5
+                });
+            });*/
+        </script>
+    </body>
 </html>

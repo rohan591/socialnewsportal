@@ -1,8 +1,9 @@
 <?php
-$val = 'iphone6';
-$apiURL = "http://post-cache.tagboard.com/search/".$val;
 
- $data = array('count'=>50);
+$term = $_REQUEST['term'];
+$apiURL = "http://post-cache.tagboard.com/search/".$term;
+
+ $data = array('count'=>5);
   $options = array(
     'http' => array(
         'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
@@ -12,7 +13,10 @@ $apiURL = "http://post-cache.tagboard.com/search/".$val;
   );
 
   $context  = stream_context_create($options);
+
   // echo '--->'.http_build_query($data);
   $result = file_get_contents($apiURL, false, $context);
-  echo $result;
+
+  header('Content-Type: application/json');
+  echo json_encode($result);
 ?>
