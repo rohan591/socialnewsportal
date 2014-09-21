@@ -19,78 +19,88 @@
                 $('#searchBox').submit(function(e){
                   e.preventDefault();
                   var q = $('#term').val();
-
-                  $('#grid').html('');
-
-                  var query = 'http://localhost/socialnewspostal/trunk/testTweet.php?term='+q;
-
-                  $.get(query, function(data) {
-                    data = jQuery.parseJSON(data);
-                     var i = 0;
-                     $.each(data.posts, function() {
-                        if (data.posts[i].network == 'twitter') {
-                          var network = 'twitIcon';
-                        }else if (data.posts[i].network == 'facebook') {
-                          var network = 'fbIcon';                          
-                        }
-
-                        var text = data.posts[i].text;
-                        var permalink = data.posts[i].permalink;
-                        var photoUrl = '';
-                        var photo = '';
-
-                        if (data.posts[i].network == 'twitter' && data.posts[i].photos) {
-                          photoUrl = data.posts[i].photos[0].m;
-                        }else if (data.posts[i].network == 'facebook' && data.posts[i].photos) {
-                          photoUrl = data.posts[i].photos[0].l;
-                        }else if (data.posts[i].network == 'instagram' && data.posts[i].photos) {
-                          photoUrl = data.posts[i].photos[0].l;
-                        }
-
-                        var profilePic = '<img src="'+data.posts[i].user_profile_image_url+'" />';
-                        var username = data.posts[i].user_name;
-                        var profileLink = '';
-                        if (data.posts[i].network == 'twitter') {
-                          profileLink = 'https://twitter.com/'+username;
-                        }else if (data.posts[i].network == 'facebook') {
-                          profileLink = 'https://www.facebook.com/'+data.posts[i].user_id;
-                          username = data.posts[i].user_real_name;
-                        }else if (data.posts[i].network == 'instagram') {
-                          profileLink = 'http://instagram.com/'+username;
-                        }
-
-                        if (photoUrl != '') {
-                          var photo = '<a href="javascript:void(0)" class="imgBox">'+
-                                      '<img src="'+photoUrl+'" />'+
-                                      '</a>';
-                        };
-
-                        var post = '<li>'+
-                                    '<div class="content">'+
-                                    '<a href="'+profileLink+'" class="profilePic">'+profilePic+' '+username+'</a><br>'+
-                                    '<a href="javascript:void(0)" class="'+network+' magictime"></a>'+
-                                    photo+
-                                    '<div class="textBox">'+
-                                    '<h2><a href="'+permalink+'">'+text+'</a></h2>'+
-                                    '<p>'+text+'</p>'+
-                                    '<div class="read-more-wrapper">'+
-                                    '</div>'+
-                                    '</div>'+
-                                    '</div>'+
-                                    '</li>';
-
-                        $('#grid').append(post);
-
-                        i++;
-                     });
-
-                      new GridScrollFx( document.getElementById('grid'), {
-                        viewportFactor : 0.4
-                      });
-                  });
+                  sendRequest(q);
                 });              
-          
+                
+                sendRequest('geekhours2014');
             });
+
+            function sendRequest(q){
+                $('#grid').html('<img id="loader" src="images/loader.GIF" />');
+
+                var query = 'http://localhost/socialnewspostal/trunk/testTweet.php?term='+q;
+
+                $.get(query, function(data) {
+                  $('#loader').remove();
+                  data = jQuery.parseJSON(data);
+                   var i = 0;
+                   $.each(data.posts, function() {
+                      if (data.posts[i].network == 'twitter') {
+                        var network = 'twitIcon';
+                      }else if (data.posts[i].network == 'facebook') {
+                        var network = 'fbIcon';                          
+                      }else if (data.posts[i].network == 'instagram') {
+                        var network = 'instagramIcon';                          
+                      }
+
+                      var text = data.posts[i].text;
+                      var permalink = data.posts[i].permalink;
+                      var photoUrl = '';
+                      var photo = '';
+
+                      if (data.posts[i].network == 'twitter' && data.posts[i].photos) {
+                        photoUrl = data.posts[i].photos[0].m;
+                      }else if (data.posts[i].network == 'facebook' && data.posts[i].photos) {
+                        photoUrl = data.posts[i].photos[0].l;
+                      }else if (data.posts[i].network == 'instagram' && data.posts[i].photos) {
+                        photoUrl = data.posts[i].photos[0].l;
+                      }
+
+                      var profilePic = '<img src="'+data.posts[i].user_profile_image_url+'" />';
+                      var username = data.posts[i].user_name;
+                      var profileLink = '';
+                      var html = '';
+                      if (data.posts[i].html) {
+                        var html = data.posts[i].html;
+                      };
+                      if (data.posts[i].network == 'twitter') {
+                        profileLink = 'https://twitter.com/'+username;
+                      }else if (data.posts[i].network == 'facebook') {
+                        profileLink = 'https://www.facebook.com/'+data.posts[i].user_id;
+                        username = data.posts[i].user_real_name;
+                      }else if (data.posts[i].network == 'instagram') {
+                        profileLink = 'http://instagram.com/'+username;
+                      }
+
+                      if (photoUrl != '') {
+                        var photo = '<a href="javascript:void(0)" class="imgBox">'+
+                                    '<img src="'+photoUrl+'" />'+
+                                    '</a>';
+                      };
+
+                      var post = '<li>'+
+                                  '<div class="content">'+
+                                  '<a href="'+profileLink+'" class="profilePic" target="_blank">'+profilePic+' '+username+'</a>'+
+                                  '<a href="javascript:void(0)" class="'+network+' magictime"></a>'+
+                                  photo+
+                                  '<div class="textBox">'+
+                                  '<h2>'+html+'</h2>'+
+                                  '<div class="read-more-wrapper">'+
+                                  '</div>'+
+                                  '</div>'+
+                                  '</div>'+
+                                  '</li>';
+
+                      $('#grid').append(post);
+
+                      i++;
+                   });
+
+                    new GridScrollFx( document.getElementById('grid'), {
+                      viewportFactor : 0.4
+                    });
+                });
+            }
             </script>
         </head>
         <body>

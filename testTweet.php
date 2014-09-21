@@ -1,9 +1,9 @@
 <?php
 
 $term = $_REQUEST['term'];
-$apiURL = "http://post-cache.tagboard.com/search/".$term;
+$apiURL = "http://post-cache.tagboard.com/search/".$term."?count=20";
 
- $data = array('count'=>50);
+ $data = array('count'=>1);
   $options = array(
     'http' => array(
         'header'  => "Content-type: application/x-www-form-urlencoded\r\n",

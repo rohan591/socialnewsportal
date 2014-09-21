@@ -225,8 +225,9 @@ background-position: 0px -48px;
   padding: 10px 15px;
 }
 .textBox h2 {
-  font-size: 18px;
-  line-height: 22px;  
+  font-size: 16px;
+  line-height: 20px;  
+  font-weight: 300;
 }
 .textBox p {
   font-size: 13px;
@@ -272,7 +273,8 @@ a.read-more {
 /*icons-----*/
 .fbIcon,
 .twitIcon,
-.pintIcon {
+.pintIcon,
+.instagramIcon {
   background: url(../images/facebok.png) no-repeat;
   width: 24px;
   height: 24px;
