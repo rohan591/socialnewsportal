@@ -43,6 +43,20 @@
                           photoUrl = data.posts[i].photos[0].m;
                         }else if (data.posts[i].network == 'facebook' && data.posts[i].photos) {
                           photoUrl = data.posts[i].photos[0].l;
+                        }else if (data.posts[i].network == 'instagram' && data.posts[i].photos) {
+                          photoUrl = data.posts[i].photos[0].l;
+                        }
+
+                        var profilePic = '<img src="'+data.posts[i].user_profile_image_url+'" />';
+                        var username = data.posts[i].user_name;
+                        var profileLink = '';
+                        if (data.posts[i].network == 'twitter') {
+                          profileLink = 'https://twitter.com/'+username;
+                        }else if (data.posts[i].network == 'facebook') {
+                          profileLink = 'https://www.facebook.com/'+data.posts[i].user_id;
+                          username = data.posts[i].user_real_name;
+                        }else if (data.posts[i].network == 'instagram') {
+                          profileLink = 'http://instagram.com/'+username;
                         }
 
                         if (photoUrl != '') {
@@ -53,6 +67,7 @@
 
                         var post = '<li>'+
                                     '<div class="content">'+
+                                    '<a href="'+profileLink+'" class="profilePic">'+profilePic+' '+username+'</a><br>'+
                                     '<a href="javascript:void(0)" class="'+network+' magictime"></a>'+
                                     photo+
                                     '<div class="textBox">'+

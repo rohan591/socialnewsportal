@@ -66,6 +66,10 @@
 	outline: none;
 	border: none;
 }
+.grid li .profilePic img {
+	width: 25px;
+	float: left;
+}
 
 .grid li > .content {
 	position: relative;
