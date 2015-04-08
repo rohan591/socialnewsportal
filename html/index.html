@@ -28,7 +28,7 @@
             function sendRequest(q){
                 $('#grid').html('<img id="loader" src="images/loader.GIF" />');
 
-                var query = 'http://localhost/socialnewspostal/trunk/testTweet.php?term='+q;
+                var query = 'http://localhost/socialnewsportal/trunk/testTweet.php?term='+q;
 
                 $.get(query, function(data) {
                   $('#loader').remove();
